@@ -7,12 +7,20 @@ public class Location {
     private static int nextId = 1;
     private String value;
 
+    public Location(int id, String value) {
+        this.id = id;
+        this.value = value;
+    }
+
     public Location() {
         id = nextId;
         nextId++;
     }
 
-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
+    public Location(String aValue) {
+        this.value = aValue;
+    }
+// TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
 
 
