@@ -6,6 +6,9 @@ public class Job {
 
     private int id;
     private static int nextId = 1;
+    private boolean nextIdStatus;
+
+
 
     public Job() {
         id = nextId;
@@ -95,7 +98,47 @@ public class Job {
         return coreCompetency;
     }
 
+    public void setNextId(int aNextId) {
+        nextId = aNextId;
+        this.id = nextId;
+    }
+
     public int getId() {
+        this.id = id;
         return id;
     }
+
+    public boolean isNextIdStatus() {
+        if (nextId > 1) {
+            return nextIdStatus = true;
+        } else
+        return nextIdStatus = false;
+    }
+    @Override
+    public String toString() {
+        if (getEmployer().getValue().equals("")) {
+            this.employer = new Employer("Data not available");
+        }
+        if (getLocation().getValue().equals("")) {
+            this.location = new Location("Data not available");
+        }
+        if (getPositionType().getValue().equals("")) {
+            this.positionType = new PositionType("Data not available");
+        }
+        if (getCoreCompetency().getValue().equals("")) {
+            this.coreCompetency = new CoreCompetency("Data not available");
+        }
+        if (getName().equals("")) {
+            this.name = "Data not available";
+        }
+        String jobPosting = "\nID: " + getId() +
+                "\nName: " + getName() +
+                "\nEmployer: " + getEmployer() +
+                "\nLocation: " + getLocation() +
+                "\nPosition Type: " + getPositionType() +
+                "\nCore Competency: " + getCoreCompetency();
+        return jobPosting;
+    }
+
+
 }
