@@ -5,14 +5,14 @@ import java.util.Objects;
 public class Job {
 
     private int id;
-    private static int nextId = 1;
+//    private static int nextId = 1;
     private boolean nextIdStatus;
 
 
 
     public Job() {
-        id = nextId;
-        nextId++;
+        id = JobField.getNextId();
+        JobField.nextId++;
     }
 
     public Job(int id) {
@@ -99,17 +99,17 @@ public class Job {
     }
 
     public void setNextId(int aNextId) {
-        nextId = aNextId;
-        this.id = nextId;
+        JobField.nextId = aNextId;
+        this.id = JobField.nextId;
     }
 
     public int getId() {
-        this.id = id;
+//        this.id = id;
         return id;
     }
 
     public boolean isNextIdStatus() {
-        if (nextId > 1) {
+        if (JobField.nextId > 1) {
             return nextIdStatus = true;
         } else
         return nextIdStatus = false;

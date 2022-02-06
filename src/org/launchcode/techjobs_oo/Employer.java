@@ -2,8 +2,9 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class Employer {
-    private int id;
+public class Employer extends JobField{
+//public class Employer {
+    private static int id;
     private static int nextId = 1;
     private String value;
 
@@ -39,7 +40,7 @@ public class Employer {
 
     // Getters and Setters:
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 

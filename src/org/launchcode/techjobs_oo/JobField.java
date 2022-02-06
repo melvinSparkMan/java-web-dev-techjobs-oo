@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public abstract class JobField {
 
-    private int id;
-    private static int nextId;
-    private String value;
+    public static int id;
+    public static int nextId;
+    public String value;
 
     public JobField(int id, String value) {
         this.id = id;
@@ -18,7 +18,8 @@ public abstract class JobField {
         nextId++;
     }
 
-    public int getId() {
+    public static int getId() {
+        id = nextId;
         return id;
     }
 
@@ -27,6 +28,7 @@ public abstract class JobField {
     }
 
     public static int getNextId() {
+        nextId++;
         return nextId;
     }
 
@@ -49,7 +51,7 @@ public abstract class JobField {
         if (this == o) return true;
         if (!(o instanceof JobField)) return false;
         JobField jobField = (JobField) o;
-        return getId() == jobField.getId() && Objects.equals(getValue(), jobField.getValue());
+        return getId() == jobField.getId();
     }
 
     @Override
