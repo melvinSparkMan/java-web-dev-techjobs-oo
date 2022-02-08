@@ -5,19 +5,17 @@ import java.util.Objects;
 public class Job {
 
     private int id;
-//    private static int nextId = 1;
     private boolean nextIdStatus;
 
 
 
     public Job() {
+
         id = JobField.getNextId();
-        JobField.nextId++;
+
     }
 
-    public Job(int id) {
-        this.id = id;
-    }
+
 
 
     private String name;
@@ -25,6 +23,8 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+
+
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this.name = name;
@@ -100,11 +100,11 @@ public class Job {
 
     public void setNextId(int aNextId) {
         JobField.nextId = aNextId;
-        this.id = JobField.nextId;
+        this.id = JobField.nextId++;
     }
 
     public int getId() {
-//        this.id = id;
+        this.id = JobField.getNextId();
         return id;
     }
 

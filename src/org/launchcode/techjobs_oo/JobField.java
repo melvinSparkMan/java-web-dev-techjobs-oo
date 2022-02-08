@@ -19,7 +19,7 @@ public abstract class JobField {
     }
 
     public static int getId() {
-        id = nextId;
+//        id = nextId;
         return id;
     }
 
@@ -28,12 +28,17 @@ public abstract class JobField {
     }
 
     public static int getNextId() {
-        nextId++;
-        return nextId;
+//        JobField.nextId++;
+        return JobField.nextId;
     }
 
-    public static void setNextId(int nextId) {
-        JobField.nextId = nextId;
+//    public static void setNextId(int nextId) {
+//        JobField.nextId = nextId;
+//    }
+
+    public static void setNextId(int aNextId) {
+        JobField.nextId = aNextId;
+        JobField.id = JobField.nextId++;
     }
 
     public String getValue() {

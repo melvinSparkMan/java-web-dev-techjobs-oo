@@ -3,17 +3,12 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class PositionType extends JobField{
-//    public PositionType() {
-//    }
 
-//public class PositionType {
-//    private int id;
-//    private static int nextId = 1;
-//    private String value;
+
+
 
     public PositionType() {
-        id = JobField.getNextId();
-        nextId++;
+        id = JobField.getId();
     }
 
     public PositionType(String value) {
@@ -46,9 +41,7 @@ public class PositionType extends JobField{
 
     // Getters and Setters:
 
-//    public int getId() {
-//        return id;
-//    }
+
 
     public String getValue() {
         return value;

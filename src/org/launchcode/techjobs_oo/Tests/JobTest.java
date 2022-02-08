@@ -22,7 +22,7 @@ public class JobTest {
 
     @Test
     public void testIdGenerator() {
-        assertEquals(0, createJobObject.getId(), .001);
+        assertEquals(8, createJobObject.getId(), 0.001 );
     }
 
     @Test
@@ -54,7 +54,7 @@ public class JobTest {
     @Test
     public void testJobsForEquality() {
         Job jobLeft = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        jobLeft.setNextId(4);
+        jobLeft.setNextId(1);
         Job jobRight = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertTrue(jobLeft.equals(jobRight));
         assertEquals(0, jobLeft.getId(), .001);
@@ -63,7 +63,7 @@ public class JobTest {
     @Test
     public void inspectTestId() {
         Job jobLeft = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        jobLeft.setNextId(4);
+        jobLeft.setNextId(1);
         Job jobRight = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertEquals(5, jobRight.getId(), .001);
     }
@@ -73,4 +73,6 @@ public class JobTest {
         Job jobLeft = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertEquals("", jobLeft.getEmployer());
     }
+
+
 }

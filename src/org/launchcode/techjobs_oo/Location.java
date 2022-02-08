@@ -4,19 +4,19 @@ import java.util.Objects;
 
 public class Location extends JobField{
 //public class Location {
-    private static int id;
-    private static int nextId = 1;
+//    private static int id;
+//    private static int nextId = 1;
     private String value;
 
     public Location(int id, String value) {
-        this.id = id;
+        this.id = JobField.getId();
         this.value = value;
     }
 
-    public Location() {
-        id = nextId;
-        nextId++;
-    }
+//    public Location() {
+//        id = nextId;
+//        nextId++;
+//    }
 
     public Location(String aValue) {
         this.value = aValue;
