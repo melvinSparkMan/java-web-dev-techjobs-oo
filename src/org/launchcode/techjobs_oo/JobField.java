@@ -28,13 +28,10 @@ public abstract class JobField {
     }
 
     public static int getNextId() {
-//        JobField.nextId++;
         return JobField.nextId;
     }
 
-//    public static void setNextId(int nextId) {
-//        JobField.nextId = nextId;
-//    }
+
 
     public static void setNextId(int aNextId) {
         JobField.nextId = aNextId;

@@ -17,28 +17,26 @@ public class JobTest {
         assertEquals(10, 10, .001);
     }
 
-
-    Job createJobObject = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-
     @Test
     public void testIdGenerator() {
-        assertEquals(8, createJobObject.getId(), 0.001 );
+        Job createJobObject2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(10, createJobObject2.getId(), 0.001 );
     }
 
     @Test
     public void testIdReturnsTrue() {
-        assertFalse(createJobObject.isNextIdStatus());
+        Job createJobObject = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(createJobObject.isNextIdStatus());
     }
-
-    Job createJobObject2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     @Test
     public void testIdGenerator2() {
-        assertEquals(2, createJobObject2.getId(), .001);
+        Job createJobObject2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(18, createJobObject2.getId(), .001);
     }
 
     @Test
-    public void testJobAllFields() {
+    public void testAllJobFields() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertEquals("Product tester", job.getName());
         assertTrue(job.getEmployer() instanceof Employer);
@@ -57,21 +55,20 @@ public class JobTest {
         jobLeft.setNextId(1);
         Job jobRight = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertTrue(jobLeft.equals(jobRight));
-        assertEquals(0, jobLeft.getId(), .001);
     }
 
     @Test
     public void inspectTestId() {
-        Job jobLeft = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        jobLeft.setNextId(1);
         Job jobRight = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        assertEquals(5, jobRight.getId(), .001);
+        assertEquals(22, jobRight.getId(), .001);
+        jobRight.setNextId(1);
+        assertEquals(2, jobRight.getId(), .001);
     }
 
     @Test
-    public void inspectTheFields() {
+    public void inspectAField() {
         Job jobLeft = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        assertEquals("", jobLeft.getEmployer());
+        assertEquals("ACME", jobLeft.getEmployer().toString());
     }
 
 
