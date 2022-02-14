@@ -31,22 +31,9 @@ public abstract class JobField {
         return JobField.nextId;
     }
 
-
-
-    public static void setNextId(int aNextId) {
-        JobField.nextId = aNextId;
-        JobField.id = JobField.nextId++;
-    }
-
     public String getValue() {
         return value;
     }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-
 
     @Override
     public boolean equals(Object o) {

@@ -136,7 +136,8 @@ public class Job {
                 "\nEmployer: " + getEmployer() +
                 "\nLocation: " + getLocation() +
                 "\nPosition Type: " + getPositionType() +
-                "\nCore Competency: " + getCoreCompetency();
+                "\nCore Competency: " + getCoreCompetency() +
+                "\n";
         return jobPosting;
     }
 
