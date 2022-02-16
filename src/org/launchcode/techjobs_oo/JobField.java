@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public abstract class JobField {
 
-    public static int id;
-    public static int nextId;
-    public String value;
+    private int id;
+    private static int nextId = 1;
+    private String value;
 
-    public JobField(int id, String value) {
-        this.id = id;
+    public JobField(String value) {
+        this();
         this.value = value;
     }
 
@@ -18,17 +18,8 @@ public abstract class JobField {
         nextId++;
     }
 
-    public static int getId() {
-//        id = nextId;
+    public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getNextId() {
-        return JobField.nextId;
     }
 
     public String getValue() {

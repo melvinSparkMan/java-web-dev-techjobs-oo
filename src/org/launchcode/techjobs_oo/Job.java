@@ -5,18 +5,7 @@ import java.util.Objects;
 public class Job {
 
     private int id;
-    private boolean nextIdStatus;
-
-
-
-    public Job() {
-
-        id = JobField.getNextId();
-
-    }
-
-
-
+    private static int nextId = 1;
 
     private String name;
     private Employer employer;
@@ -24,9 +13,13 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -52,7 +45,7 @@ public class Job {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getId(), getName(), getEmployer(), getLocation(), getPositionType(), getCoreCompetency());
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
@@ -98,22 +91,12 @@ public class Job {
         return coreCompetency;
     }
 
-    public void setNextId(int aNextId) {
-        JobField.nextId = aNextId;
-        this.id = JobField.nextId++;
-    }
+
 
     public int getId() {
-        this.id = JobField.getNextId();
         return id;
     }
 
-    public boolean isNextIdStatus() {
-        if (JobField.nextId > 1) {
-            return nextIdStatus = true;
-        } else
-        return nextIdStatus = false;
-    }
     @Override
     public String toString() {
         if (getEmployer().getValue().equals("")) {
@@ -131,12 +114,14 @@ public class Job {
         if (getName().equals("")) {
             this.name = "Data not available";
         }
-        String jobPosting = "\nID: " + getId() +
+
+
+        String jobPosting = "\nID: " + this.id +
                 "\nName: " + getName() +
-                "\nEmployer: " + getEmployer() +
-                "\nLocation: " + getLocation() +
-                "\nPosition Type: " + getPositionType() +
-                "\nCore Competency: " + getCoreCompetency() +
+                "\nEmployer: " + getEmployer().getValue() +
+                "\nLocation: " + getLocation().getValue() +
+                "\nPosition Type: " + getPositionType().getValue() +
+                "\nCore Competency: " + getCoreCompetency().getValue() +
                 "\n";
         return jobPosting;
     }
